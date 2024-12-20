@@ -23,7 +23,7 @@ def addproduct():
         db.session.commit()
         # dogs.append(dog)
 
-        return redirect("/show_products")
+        return redirect("/")
     return render_template("add_product.html", form=form)
 
 
@@ -44,7 +44,7 @@ def edit(id):
         selected_dog.colour = form.colour.data
         db.session.commit()
 
-        return redirect("/show_products")
+        return redirect("/")
     return render_template("add_product.html", form=form)
 
 @app.route("/delete/<int:id>", methods=["GET", "POST"])
@@ -53,7 +53,7 @@ def delete(id):
     selected_dog = Dog.query.get(id)
     db.session.delete(selected_dog)
     db.session.commit()
-    return redirect("/show_products")
+    return redirect("/")
 
 # @app.route('/about_me')
 # def greeting():
